@@ -69,6 +69,19 @@ def success():
     """Renders the success page after form submission."""
     return render_template("success.html")
 
+@app.route("/submittodoitem", methods=["POST"])
+def submit_todo_item():
+    item_name = request.form.get("itemName")
+    item_desc = request.form.get("itemDescription")
+    if not item_name or not item_desc:
+        return jsonify({"error": "Missing required fields"}), 400
 
+    todo_collection = db["todos"]
+    todo_collection.insert_one({
+        "itemName": item_name,
+        "itemDescription": item_desc
+    })
+    return jsonify({"message": "To-do item created successfully!"}), 201
+    
 if __name__ == "__main__":
     app.run(debug=True, port=5000)

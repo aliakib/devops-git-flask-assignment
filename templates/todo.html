@@ -1,12 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>To-Do List</title>
 </head>
+
 <body>
     <h2>Add To-Do Item</h2>
     <form action="/submittodoitem" method="POST">
+        <div>
+            <label>Item ID:</label>
+            <input type="text" name="itemId">
+        </div>
         <div>
             <label>Item Name:</label>
             <input type="text" name="itemName" required>
@@ -18,4 +24,5 @@
         <button type="submit">Add Item</button>
     </form>
 </body>
+
 </html>

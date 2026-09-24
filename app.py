@@ -69,6 +69,9 @@ def success():
     """Renders the success page after form submission."""
     return render_template("success.html")
 
+@app.route("/todo", methods=["GET"])
+def todo_page():
+    return render_template("todo.html")
 
 if __name__ == "__main__":
     app.run(debug=True, port=5000)
